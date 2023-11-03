@@ -2,7 +2,20 @@
 
 set -e
 
-CONFIG="install.conf.yaml"
+PLATFORM_NAME=$(uname)
+
+platform='unknown'
+if [[ $PLATFORM_NAME == 'Linux' ]]; then
+  platform='linux'
+elif [[ $PLATFORM_NAME == 'Darwin' ]]; then
+  platform='macos'
+fi
+
+CONFIG="packages-linux.conf.yaml"
+if [[ $platform == 'macos' ]]; then
+    CONFIG="packages-brew.conf.yaml"
+fi
+
 DOTBOT_DIR="dotbot"
 PLUGIN_DIR="plugins"
 

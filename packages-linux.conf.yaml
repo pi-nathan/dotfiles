@@ -1,0 +1,10 @@
+- apt:
+      - git
+      - zsh
+      - zsh-antigen
+      - fzf
+      - fd
+      - autojump
+- snap:
+      - gh:
+        classic: true
