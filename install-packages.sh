@@ -17,13 +17,19 @@ if [[ $platform == 'macos' ]]; then
 fi
 
 DOTBOT_DIR="dotbot"
-PLUGIN_DIR="plugins"
 
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+P="${BASEDIR}/plugins"
 
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" --plugin-dir "${PLUGIN_DIR}" "${@}"
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+    -d "${BASEDIR}" \
+    -c "${CONFIG}" \
+    -p "${P}/dotbot-apt/apt.py" \
+    -p "${P}/dotbot-brew/brew.py" \
+    -p "${P}/dotbot-snap/snap.py" \
+    "${@}"
