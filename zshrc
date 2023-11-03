@@ -1,3 +1,14 @@
+ESPANSO_PATH=$(espanso path config)
+PLATFORM_NAME=$(uname)
+
+platform='unknown'
+if [[ $PLATFORM_NAME == 'Linux' ]]; then
+  platform='linux'
+elif [[ $PLATFORM_NAME == 'Darwin' ]]; then
+  platform='macos'
+fi
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -9,13 +20,13 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -32,7 +43,7 @@ HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -77,9 +88,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-abbr forgit zsh-better-npm-completion sudo dirhistory macos)
+# plugins=(git zsh-abbr forgit zsh-better-npm-completion sudo dirhistory macos)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -106,17 +117,45 @@ fi
 alias zshrc="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias rnpm="recursive-npm"
-alias espanso-edit="code ~/Library/Application\ Support/espanso/."
+alias espanso-edit="code \$ESPANSO_PATH/."
 
 # Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ $platform == 'macos' ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  source "$HOMEBREW_PREFIX/share/antigen/antigen.zsh"
+fi
+
+# Antigen
+# Uncomment to log antigen output
+# export ANTIGEN_LOG=$HOME/antigen.log
+antigen use oh-my-zsh
+
+# All platforms
+antigen bundle git
+antigen bundle olets/zsh-abbr@main
+antigen bundle wfxr/forgit
+antigen bundle lukechilds/zsh-better-npm-completion
+antigen bundle sudo
+antigen bundle dirhistory
+
+# MacOS
+if [[ $platform == 'macos' ]]; then
+  antigen bundle macos
+fi
+
+# Theme
+antigen theme romkatv/powerlevel10k
+
+# Apply
+antigen apply
 
 # # fnm
 # eval "$(fnm env --use-on-cd)"
 
 # Autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-
+if [[ $platform == 'macos' ]]; then
+  [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+fi
 # powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

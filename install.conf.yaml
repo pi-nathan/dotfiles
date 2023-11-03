@@ -1,11 +1,12 @@
-- clean: ['~']
+- clean: ["~"]
+
+- brewfile:
+      - homebrew/Brewfile
 
 - link:
-    ~/.bashrc: bashrc
-    ~/.gitconfig: gitconfig
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
-    ~/.zshrc: zshrc
-
-
+      ~/.gitconfig: gitconfig
+      ~/.ssh/config:
+          path: ssh/config
+          create: true
+      ~/.zshrc: zshrc
+      ~/.p10k.zsh: p10k.zsh

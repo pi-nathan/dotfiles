@@ -1,0 +1,12 @@
+tap 'homebrew/cask-fonts'
+
+brew 'antigen'
+brew 'autojump'
+brew 'fd'
+brew 'fzf'
+brew 'git'
+brew 'gh'
+brew 'zsh'
+
+cask '1password-cli'
+cask 'font-meslo-lg-nerd-font'
