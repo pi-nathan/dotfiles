@@ -26,7 +26,7 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
     -d "${BASEDIR}" \
     -c "${CONFIG}" \
     -p "${P}/dotbot-apt/apt.py" \
