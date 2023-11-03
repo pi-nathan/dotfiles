@@ -123,7 +123,7 @@ alias espanso-edit="code \$ESPANSO_PATH/."
 if [[ $platform == 'macos' ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
   source "$HOMEBREW_PREFIX/share/antigen/antigen.zsh"
-elif [[ $platform == 'linux ' ]]; then
+elif [[ $platform == 'linux' ]]; then
   source "/usr/share/zsh-antigen/antigen.zsh"
 fi
 
