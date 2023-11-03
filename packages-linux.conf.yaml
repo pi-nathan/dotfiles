@@ -3,7 +3,7 @@
       - zsh
       - zsh-antigen
       - fzf
-      - fd
+      - fd-find
       - autojump
 - snap:
       - gh:
