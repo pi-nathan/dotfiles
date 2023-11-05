@@ -1,4 +1,3 @@
-ESPANSO_PATH=$(espanso path config)
 PLATFORM_NAME=$(uname)
 
 platform='unknown'
@@ -117,7 +116,12 @@ fi
 alias zshrc="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias rnpm="recursive-npm"
-alias espanso-edit="code \$ESPANSO_PATH/."
+if command -v espanso &> /dev/null; then
+  ESPANSO_PATH=$(espanso path config)
+  alias espanso-edit="code \$ESPANSO_PATH/."
+else
+  alias espanso-edit="echo \"Espanso could not be found\""
+fi
 
 # Homebrew
 if [[ $platform == 'macos' ]]; then
