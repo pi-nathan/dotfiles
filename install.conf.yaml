@@ -12,3 +12,4 @@
     - command: if [[ $SHELL != "/bin/zsh" ]]; then sudo chsh -s /bin/zsh `whoami`; fi
       stdin: true
       stdout: true
+    - command: touch ~/.hushfile
