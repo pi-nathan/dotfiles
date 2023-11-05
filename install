@@ -2,15 +2,48 @@
 
 set -e
 
+# Dotbot vars
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
-PLUGIN_DIR="plugins"
-
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+P="${BASEDIR}/plugins"
 
+# Set platform
+PLATFORM_NAME=$(uname)
+platform='unknown'
+if [[ $PLATFORM_NAME == 'Linux' ]]; then
+  platform='linux'
+elif [[ $PLATFORM_NAME == 'Darwin' ]]; then
+  platform='macos'
+fi
+
+# Pick correct package dotbot config
+CONFIG="packages-linux.conf.yaml"
+if [[ $platform == 'macos' ]]; then
+  CONFIG="packages-brew.conf.yaml"
+fi
+
+# Clone submodules
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" --plugin-dir "${PLUGIN_DIR}" "${@}"
+# Install packages
+sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+  -d "${BASEDIR}" \
+  -c "${CONFIG}" \
+  -p "${P}/dotbot-apt/apt.py" \
+  -p "${P}/dotbot-brew/brew.py" \
+  -p "${P}/dotbot-snap/snap.py" \
+  "${@}"
+
+
+# Setup user env
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+  -d "${BASEDIR}" \
+  -c "${CONFIG}" \
+  -p "${P}/dotbot-apt/apt.py" \
+  -p "${P}/dotbot-brew/brew.py" \
+  -p "${P}/dotbot-snap/snap.py" \
+  "${@}"
