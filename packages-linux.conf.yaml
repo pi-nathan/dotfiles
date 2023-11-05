@@ -1,11 +1,12 @@
 - shell:
-    - command: "scripts/add-apt-sources.sh"
+      - command: "scripts/add-apt-sources.sh"
+      - command: "scripts/fix-wsl-vscode.sh"
 - apt:
-    - git
-    - zsh
-    - zsh-antigen
-    - fzf
-    - fd-find
-    - autojump
-    - curl
-    - gh
+      - git
+      - zsh
+      - zsh-antigen
+      - fzf
+      - fd-find
+      - autojump
+      - curl
+      - gh
