@@ -1,10 +1,11 @@
+- shell:
+    - command: "scripts/add-apt-sources.sh"
 - apt:
-      - git
-      - zsh
-      - zsh-antigen
-      - fzf
-      - fd-find
-      - autojump
-- snap:
-      - gh:
-        classic: true
+    - git
+    - zsh
+    - zsh-antigen
+    - fzf
+    - fd-find
+    - autojump
+    - curl
+    - gh
