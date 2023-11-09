@@ -7,6 +7,7 @@ brew 'fzf'
 brew 'git'
 brew 'gh'
 brew 'zsh'
+brew 'pyenv'
 
 cask '1password-cli'
 cask 'font-meslo-lg-nerd-font'
