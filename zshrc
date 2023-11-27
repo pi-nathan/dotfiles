@@ -161,6 +161,13 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+if command -v pyenv &> /dev/null; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
 # bun completions
 [ -s "/Users/nathan/.bun/_bun" ] && source "/Users/nathan/.bun/_bun"
 
