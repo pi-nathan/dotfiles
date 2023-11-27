@@ -79,18 +79,6 @@ COMPLETION_WAITING_DOTS="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# plugins=(git zsh-abbr forgit zsh-better-npm-completion sudo dirhistory macos)
-
-# source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -113,9 +101,11 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+# Lazy load NVM to speed up init
+export NVM_LAZY_LOAD=true
+
 alias zshrc="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-alias rnpm="recursive-npm"
+alias dotfiles="code ~/.dotfiles"
 if command -v espanso &> /dev/null; then
   ESPANSO_PATH=$(espanso path config)
   alias espanso-edit="code \$ESPANSO_PATH/."
@@ -143,6 +133,7 @@ antigen bundle wfxr/forgit
 antigen bundle lukechilds/zsh-better-npm-completion
 antigen bundle sudo
 antigen bundle dirhistory
+antigen bundle lukechilds/zsh-nvm
 
 # MacOS
 if [[ $platform == 'macos' ]]; then
@@ -169,10 +160,6 @@ fi
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun completions
 [ -s "/Users/nathan/.bun/_bun" ] && source "/Users/nathan/.bun/_bun"
