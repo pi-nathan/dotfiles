@@ -118,7 +118,7 @@ if [[ $platform == 'macos' ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
   source "$HOMEBREW_PREFIX/share/antigen/antigen.zsh"
 elif [[ $platform == 'linux' ]]; then
-  source "/usr/share/zsh-antigen/antigen.zsh"
+  source "$HOME/.antigen.zsh"
 fi
 
 # Antigen
