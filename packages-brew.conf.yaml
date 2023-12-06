@@ -1,2 +1,14 @@
-- brewfile:
-      - homebrew/Brewfile
+- tap:
+        - homebrew/cask-fonts
+- brew:
+        - antigen
+        - autojump
+        - fd
+        - fzf
+        - git
+        - gh
+        - zsh
+        - pyenv
+- cask:
+        - 1password-cli
+        - font-meslo-lg-nerd-font

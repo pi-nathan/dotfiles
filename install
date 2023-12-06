@@ -21,8 +21,6 @@ sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
   -d "${BASEDIR}" \
   -c "${PACKAGE_CONFIG}" \
   -p "${P}/dotbot-apt/apt.py" \
-  -p "${P}/dotbot-brew/brew.py" \
-  -p "${P}/dotbot-snap/snap.py" \
   "${@}"
 
 
@@ -31,7 +29,4 @@ ENV_CONFIG="install-linux.conf.yaml"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
   -d "${BASEDIR}" \
   -c "${ENV_CONFIG}" \
-  -p "${P}/dotbot-apt/apt.py" \
-  -p "${P}/dotbot-brew/brew.py" \
-  -p "${P}/dotbot-snap/snap.py" \
   "${@}"

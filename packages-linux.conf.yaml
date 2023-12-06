@@ -1,13 +1,13 @@
 - shell:
-          - command: "scripts/add-apt-sources.sh"
-          - command: "scripts/fix-wsl-vscode.sh"
-          - command: "curl https://pyenv.run | bash"
-          - command: "wget -q -O ~/.antigen.zsh git.io/antigen"
+    - command: "scripts/add-apt-sources.sh"
+    - command: "scripts/fix-wsl-vscode.sh"
+    - command: "curl https://pyenv.run | bash"
+    - command: "wget -q -O ~/.antigen.zsh git.io/antigen"
 - apt:
-          - git
-          - zsh
-          - fzf
-          - fd-find
-          - autojump
-          - curl
-          - gh
+    - git
+    - zsh
+    - fzf
+    - fd-find
+    - autojump
+    - curl
+    - gh
