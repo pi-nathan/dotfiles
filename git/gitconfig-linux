@@ -11,13 +11,7 @@
 	rollback = "!git reset @~${1:-1} #"
 [user]
 	name = Nathan Smith
-	email = nathan@payrollintegrations.com
+	email = nathan@nathan-smith.org
 [rerere]
 	enabled = true
 	autoupdate = true
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
