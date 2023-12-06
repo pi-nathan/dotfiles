@@ -15,7 +15,7 @@ git submodule update --init --recursive
 
 # Install packages
 PACKAGE_CONFIG="packages-linux.conf.yaml"
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
   -d "${BASEDIR}" \
   -c "${PACKAGE_CONFIG}" \
   -p "${P}/dotbot-apt/apt.py" \

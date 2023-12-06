@@ -5,12 +5,6 @@
     - command: "scripts/fix-wsl-vscode.sh"
       stdin: true
       stdout: true
-    - command: "curl https://pyenv.run | bash || true"
-      stdin: true
-      stdout: true
-    - command: "curl -o $HOME/.antigen.zsh git.io/antigen"
-      stdin: true
-      stdout: true
 - apt:
     - git
     - zsh

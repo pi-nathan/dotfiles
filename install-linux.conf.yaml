@@ -6,6 +6,12 @@
     ~/.p10k.zsh: p10k.zsh
 
 - shell:
+    - command: "curl https://pyenv.run | bash"
+      stdin: true
+      stdout: true
+    - command: "curl -o $HOME/.antigen.zsh git.io/antigen"
+      stdin: true
+      stdout: true
     - command: if [[ $SHELL != "/bin/zsh" ]]; then sudo chsh -s /bin/zsh `whoami`; fi
       stdin: true
       stdout: true
