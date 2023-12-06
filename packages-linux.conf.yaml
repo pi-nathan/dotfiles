@@ -1,8 +1,16 @@
 - shell:
     - command: "scripts/add-apt-sources.sh"
+      stdin: true
+      stdout: true
     - command: "scripts/fix-wsl-vscode.sh"
+      stdin: true
+      stdout: true
     - command: "curl https://pyenv.run | bash || true"
-    - command: "wget -q -O ~/.antigen.zsh git.io/antigen"
+      stdin: true
+      stdout: true
+    - command: "wget -q -O $HOME/.antigen.zsh git.io/antigen"
+      stdin: true
+      stdout: true
 - apt:
     - git
     - zsh

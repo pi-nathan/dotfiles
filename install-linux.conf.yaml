@@ -2,9 +2,6 @@
 
 - link:
     ~/.gitconfig: git/gitconfig-linux
-    # ~/.ssh/config:
-    #   path: ssh/config
-    #   create: true
     ~/.zshrc: zsh/zshrc-linux
     ~/.p10k.zsh: p10k.zsh
 
@@ -13,3 +10,5 @@
       stdin: true
       stdout: true
     - command: touch ~/.hushfile
+      stdin: true
+      stdout: true
