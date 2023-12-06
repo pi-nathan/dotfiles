@@ -107,7 +107,7 @@ source "$HOME/.antigen.zsh"
 
 # Antigen
 # Uncomment to log antigen output
-# export ANTIGEN_LOG=$HOME/antigen.log
+export ANTIGEN_LOG=$HOME/antigen.log
 antigen use oh-my-zsh
 
 # All platforms
