@@ -8,7 +8,7 @@
     - command: "curl https://pyenv.run | bash || true"
       stdin: true
       stdout: true
-    - command: "wget -q -O $HOME/.antigen.zsh git.io/antigen"
+    - command: "curl -o $HOME/.antigen.zsh git.io/antigen"
       stdin: true
       stdout: true
 - apt:
@@ -17,5 +17,4 @@
     - fzf
     - fd-find
     - autojump
-    - curl
     - gh
