@@ -103,6 +103,9 @@ else
   alias espanso-edit="echo \"Espanso could not be found\""
 fi
 
+if [[ ! -f "$HOME/.antigen.zsh" ]]; then
+  curl -L git.io/antigen > ~/.antigen.zsh
+fi
 source "$HOME/.antigen.zsh"
 
 # Antigen
