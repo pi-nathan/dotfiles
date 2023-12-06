@@ -1,7 +1,7 @@
 - shell:
     - command: "scripts/add-apt-sources.sh"
     - command: "scripts/fix-wsl-vscode.sh"
-    - command: "curl https://pyenv.run | bash"
+    - command: "curl https://pyenv.run | bash || true"
     - command: "wget -q -O ~/.antigen.zsh git.io/antigen"
 - apt:
     - git
