@@ -5,7 +5,7 @@
     # ~/.ssh/config:
     #   path: ssh/config
     #   create: true
-    ~/.zshrc: zshrc
+    ~/.zshrc: zsh/zshrc-linux
     ~/.p10k.zsh: p10k.zsh
 
 - shell:

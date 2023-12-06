@@ -1,0 +1,15 @@
+- clean: ["~"]
+
+- link:
+    ~/.gitconfig: gitconfig
+    # ~/.ssh/config:
+    #   path: ssh/config
+    #   create: true
+    ~/.zshrc: zsh/zshrc-mac
+    ~/.p10k.zsh: p10k.zsh
+
+- shell:
+    - command: if [[ $SHELL != "/bin/zsh" ]]; then sudo chsh -s /bin/zsh `whoami`; fi
+      stdin: true
+      stdout: true
+    - command: touch ~/.hushfile

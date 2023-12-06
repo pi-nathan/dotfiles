@@ -14,9 +14,7 @@ git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive
 
 # Install packages
-# Pick correct package dotbot config
-PACKAGE_CONFIG="packages-linux.conf.yaml"
-echo $PACKAGE_CONFIG
+PACKAGE_CONFIG="packages-brew.conf.yaml"
 sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
   -d "${BASEDIR}" \
   -c "${PACKAGE_CONFIG}" \
@@ -27,7 +25,7 @@ sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
 
 
 # Setup user env
-ENV_CONFIG="install-linux.conf.yaml"
+ENV_CONFIG="install-macos.conf.yaml"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
   -d "${BASEDIR}" \
   -c "${ENV_CONFIG}" \
