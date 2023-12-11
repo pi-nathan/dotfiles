@@ -93,6 +93,7 @@ fi
 
 # Lazy load NVM to speed up init
 export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 
 alias zshrc="code ~/.zshrc"
 alias dotfiles="code ~/.dotfiles"
@@ -116,12 +117,10 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle olets/zsh-abbr@main
 antigen bundle wfxr/forgit
+antigen bundle lukechilds/zsh-nvm
 antigen bundle lukechilds/zsh-better-npm-completion
 antigen bundle sudo
 antigen bundle dirhistory
-antigen bundle lukechilds/zsh-nvm
-
-# MacOS
 antigen bundle macos
 
 # Theme

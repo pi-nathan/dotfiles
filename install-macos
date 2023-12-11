@@ -13,18 +13,18 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive
 
-# # Install packages
-PACKAGE_CONFIG="packages-brew.conf.yaml"
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
-  -d "${BASEDIR}" \
-  -c "${PACKAGE_CONFIG}" \
-  -p "${P}/dotbot-brew/brew.py" \
-  "${@}"
-
 
 # Setup user env
 ENV_CONFIG="install-macos.conf.yaml"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
   -d "${BASEDIR}" \
   -c "${ENV_CONFIG}" \
+  "${@}"
+
+# # Install packages
+PACKAGE_CONFIG="packages-brew.conf.yaml"
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+  -d "${BASEDIR}" \
+  -c "${PACKAGE_CONFIG}" \
+  -p "${P}/dotbot-brew/brew.py" \
   "${@}"
