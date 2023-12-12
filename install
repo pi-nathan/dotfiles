@@ -13,21 +13,18 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive
 
-# Remove existing zshrc if it's there
-rm ~/.zshrc || true
-
-# Install packages
-PACKAGE_CONFIG="packages-linux.conf.yaml"
-sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
-  -d "${BASEDIR}" \
-  -c "${PACKAGE_CONFIG}" \
-  -p "${P}/dotbot-apt/apt.py" \
-  "${@}"
-
 
 # Setup user env
-ENV_CONFIG="install-linux.conf.yaml"
+ENV_CONFIG="install.conf.yaml"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
   -d "${BASEDIR}" \
   -c "${ENV_CONFIG}" \
+  "${@}"
+
+# # Install packages
+PACKAGE_CONFIG="packages.conf.yaml"
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+  -d "${BASEDIR}" \
+  -c "${PACKAGE_CONFIG}" \
+  -p "${P}/dotbot-brew/brew.py" \
   "${@}"

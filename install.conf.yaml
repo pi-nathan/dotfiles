@@ -3,11 +3,11 @@
       force: true
 
 - link:
-    ~/.gitconfig: git/gitconfig-macos
+    ~/.gitconfig: git/gitconfig
     # ~/.ssh/config:
     #   path: ssh/config
     #   create: true
-    ~/.zshrc: zsh/zshrc-mac
+    ~/.zshrc: zsh/zshrc
     ~/.p10k.zsh: p10k.zsh
 
 - shell:
