@@ -92,7 +92,6 @@ fi
 # For a full list of active aliases, run `alias`.
 
 # Lazy load NVM to speed up init
-export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
 
 alias zshrc="code ~/.zshrc"
@@ -153,3 +152,8 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# ng completions
+if command -v ng version &> /dev/null; then 
+  source <(ng completion script)
+fi
