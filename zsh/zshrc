@@ -94,6 +94,7 @@ fi
 # Lazy load NVM to speed up init
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('git')
 
 alias zshrc="code ~/.zshrc"
 alias dotfiles="code ~/.dotfiles"
