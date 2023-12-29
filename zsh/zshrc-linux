@@ -157,3 +157,16 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 if command -v ng version &> /dev/null; then 
   source <(ng completion script)
 fi
+
+# alias apt to nala
+apt() { 
+  command nala "$@"
+}
+sudo() {
+  if [ "$1" = "apt" ]; then
+    shift
+    command sudo nala "$@"
+  else
+    command sudo "$@"
+  fi
+}

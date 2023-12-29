@@ -1,8 +1,8 @@
 - shell:
-    - command: "scripts/add-apt-sources.sh"
+    - command: scripts/add-apt-sources.sh
       stdin: true
       stdout: true
-    - command: "scripts/fix-wsl-vscode.sh"
+    - command: scripts/fix-wsl-vscode.sh
       stdin: true
       stdout: true
 - apt:
