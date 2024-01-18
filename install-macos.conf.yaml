@@ -4,11 +4,9 @@
 
 - link:
     ~/.gitconfig: git/gitconfig-macos
-    # ~/.ssh/config:
-    #   path: ssh/config
-    #   create: true
     ~/.zshrc: zsh/zshrc-mac
     ~/.p10k.zsh: p10k.zsh
+    ~/.better-commits.json: better-commits.json
 
 - shell:
     - command: if [[ $SHELL != "/bin/zsh" ]]; then sudo chsh -s /bin/zsh `whoami`; fi
