@@ -94,13 +94,18 @@ fi
 # Lazy load NVM to speed up init
 export NVM_COMPLETION=true
 
+alias bco="better-commits"
 alias zshrc="code ~/.zshrc"
 alias dotfiles="code ~/.dotfiles"
 if command -v espanso &> /dev/null; then
   ESPANSO_PATH=$(espanso path config)
   alias espanso-edit="code \$ESPANSO_PATH/."
-else
-  alias espanso-edit="echo \"Espanso could not be found\""
+fi
+
+if command -v fzf &> /dev/null; then
+  gch() {
+    git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
+  }
 fi
 
 if [[ ! -f "$HOME/.antigen.zsh" ]]; then
@@ -110,10 +115,9 @@ source "$HOME/.antigen.zsh"
 
 # Antigen
 # Uncomment to log antigen output
-export ANTIGEN_LOG=$HOME/antigen.log
+# export ANTIGEN_LOG=$HOME/antigen.log
 antigen use oh-my-zsh
 
-# All platforms
 antigen bundle git
 antigen bundle olets/zsh-abbr@main
 antigen bundle wfxr/forgit
@@ -127,9 +131,6 @@ antigen theme romkatv/powerlevel10k
 
 # Apply
 antigen apply
-
-# # fnm
-# eval "$(fnm env --use-on-cd)"
 
 # powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -159,14 +160,19 @@ if command -v ng version &> /dev/null; then
 fi
 
 # alias apt to nala
-apt() { 
-  command nala "$@"
-}
-sudo() {
-  if [ "$1" = "apt" ]; then
-    shift
-    command sudo nala "$@"
-  else
-    command sudo "$@"
-  fi
-}
+if command -v nala &> /dev/null; then
+  apt() { 
+    command nala "$@"
+  }
+  sudo() {
+    if [ "$1" = "apt" ]; then
+      shift
+      command sudo nala "$@"
+    else
+      command sudo "$@"
+    fi
+  }
+fi
+
+# Macos iterm2 integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
