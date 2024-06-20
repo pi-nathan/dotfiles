@@ -11,55 +11,64 @@
         "value": "feat",
         "label": "feat",
         "hint": "A new feature",
-        "emoji": "✨"
+        "emoji": "✨",
+        "trailer": "Changelog: feature"
       },
       {
         "value": "fix",
         "label": "fix",
         "hint": "A bug fix",
-        "emoji": "🐛"
+        "emoji": "🐛",
+        "trailer": "Changelog: fix"
       },
       {
         "value": "docs",
         "label": "docs",
         "hint": "Documentation only changes",
-        "emoji": "📚"
+        "emoji": "📚",
+        "trailer": "Changelog: documentation"
       },
       {
         "value": "refactor",
         "label": "refactor",
         "hint": "A code change that neither fixes a bug nor adds a feature",
-        "emoji": "🔨"
+        "emoji": "🔨",
+        "trailer": "Changelog: refactor"
       },
       {
         "value": "perf",
         "label": "perf",
         "hint": "A code change that improves performance",
-        "emoji": "🚀"
+        "emoji": "🚀",
+        "trailer": "Changelog: performance"
       },
       {
         "value": "test",
         "label": "test",
         "hint": "Adding missing tests or correcting existing tests",
-        "emoji": "🚨"
+        "emoji": "🚨",
+        "trailer": "Changelog: test"
       },
       {
         "value": "build",
         "label": "build",
         "hint": "Changes that affect the build system or external dependencies",
-        "emoji": "🚧"
+        "emoji": "🚧",
+        "trailer": "Changelog: build"
       },
       {
         "value": "ci",
         "label": "ci",
         "hint": "Changes to our CI configuration files and scripts",
-        "emoji": "🤖"
+        "emoji": "🤖",
+        "trailer": "Changelog: ci"
       },
       {
         "value": "chore",
         "label": "chore",
         "hint": "Other changes that do not modify src or test files",
-        "emoji": "🧹"
+        "emoji": "🧹",
+        "trailer": "Changelog: chore"
       },
       {
         "value": "",
@@ -73,15 +82,15 @@
     "initial_value": "app",
     "options": [
       {
-        "value": "ui",
+        "value": "app",
         "label": "app"
       },
       {
-        "value": "pipeline",
+        "value": "shared",
         "label": "shared"
       },
       {
-        "value": "common",
+        "value": "server",
         "label": "server"
       },
       {
@@ -99,6 +108,7 @@
     "confirm_ticket": true,
     "add_to_title": true,
     "append_hashtag": false,
+    "surround": "",
     "title_position": "start"
   },
   "commit_title": {
@@ -111,7 +121,7 @@
   "commit_footer": {
     "enable": true,
     "initial_value": [],
-    "options": ["closes", "breaking-change", "deprecated", "custom"]
+    "options": ["closes", "trailer", "breaking-change", "deprecated", "custom"]
   },
   "breaking_change": {
     "add_exclamation_to_title": true
@@ -131,15 +141,22 @@
     "enable": true,
     "separator": "/"
   },
+  "branch_version": {
+    "enable": false,
+    "required": false,
+    "separator": "/"
+  },
   "branch_ticket": {
     "enable": true,
     "required": false,
     "separator": "-"
   },
   "branch_description": {
-    "max_length": 70
+    "max_length": 70,
+    "separator": ""
   },
   "branch_action_default": "branch",
+  "branch_order": ["user", "version", "type", "ticket", "description"],
   "enable_worktrees": true,
   "overrides": {}
 }

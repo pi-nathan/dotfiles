@@ -1,0 +1,15 @@
+- clean: ["~"]
+
+- link:
+    ~/.gitconfig: .gitconfig
+    ~/.zshrc: .zshrc
+    ~/.p10k.zsh: .p10k.zsh
+    ~/.better-commits.json: .better-commits.json
+
+- shell:
+    - command: if [[ $SHELL != "/bin/zsh" ]]; then sudo chsh -s /bin/zsh `whoami`; fi
+      stdin: true
+      stdout: true
+    - command: touch ~/.hushfile
+      stdin: true
+      stdout: true
