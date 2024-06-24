@@ -5,6 +5,7 @@
     ~/.zshrc: .zshrc
     ~/.p10k.zsh: .p10k.zsh
     ~/.better-commits.json: .better-commits.json
+    ~/.wezterm.lua: .wezterm.lua
 
 - shell:
     - command: if [[ $SHELL != "/bin/zsh" ]]; then sudo chsh -s /bin/zsh `whoami`; fi
