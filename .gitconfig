@@ -12,7 +12,7 @@
 	rb = "!git branch -r --sort=-committerdate --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))' --color=always | grep ${1:-'Nathan Smith'} | head #"
 [user]
 	name = Nathan Smith
-	email = nathan@nathan-smith.org
+	email = nathan@payrollintegrations.com
 [rerere]
 	enabled = true
 	autoupdate = true
