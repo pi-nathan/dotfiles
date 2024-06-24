@@ -102,6 +102,13 @@ if command -v espanso &> /dev/null; then
   alias espanso-edit="code \$ESPANSO_PATH/."
 fi
 
+# Homebrew
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+fi
+
+# fzf
 if command -v fzf &> /dev/null; then
   gch() {
     git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
@@ -137,8 +144,14 @@ antigen apply
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+if command -v fzf &> /dev/null; then
+  source <(fzf --zsh)
+  export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+
+  gch() {
+    git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
+  }
+fi
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -146,13 +159,6 @@ if command -v pyenv &> /dev/null; then
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
-
-# bun completions
-[ -s "/Users/nathan/.bun/_bun" ] && source "/Users/nathan/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # ng completions
 if command -v ng version &> /dev/null; then 
@@ -173,6 +179,3 @@ if command -v nala &> /dev/null; then
     fi
   }
 fi
-
-# Macos iterm2 integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

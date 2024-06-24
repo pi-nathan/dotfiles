@@ -4,6 +4,27 @@ local config = wezterm.config_builder()
 
 config.color_scheme = 'Dracula'
 
+-- Key bindings
+config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.keys = {
+    {
+        key = '|',
+        mods = 'LEADER|SHIFT',
+        action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    },
+    {
+        key = '_',
+        mods = 'LEADER|SHIFT',
+        action = act.SplitVertical { domain = 'CurrentPaneDomain' },
+    },
+    -- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
+    {
+        key = 'a',
+        mods = 'LEADER|CTRL',
+        action = act.SendKey { key = 'a', mods = 'CTRL' },
+    },
+}
+
 -- Mouse bindings
 config.mouse_bindings = {
     {
