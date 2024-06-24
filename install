@@ -38,7 +38,7 @@ ENV_CONFIG="install.conf.yaml"
 echo "Recommend running the following commands:"
 echo "scripts/wezterm.sh"
 if [[ "${PLATFORM}" == "Darwin" ]]; then
-  echo "brew install antigen autojump fd fzf 1password-cli wezterm"
+  echo "brew install autojump fd fzf 1password-cli wezterm"
   echo "brew install --cask font-meslo-lg-nerd-font"
 fi
 
