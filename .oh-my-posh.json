@@ -40,7 +40,7 @@
             "fetch_upstream_icon": false
           },
           "style": "diamond",
-          "template": " {{ .HEAD }} {{ .BranchStatus }} <p:yellow>{{.Staging.String}}</><p:orange>{{.Working.String}}</>",
+          "template": " {{ .HEAD }} {{if or (gt .Ahead 0) (gt .Behind 0)}} {{- .BranchStatus -}} {{end}} <p:yellow>{{.Staging.String}}</><p:orange>{{.Working.String}}</>",
           "type": "git"
         }
       ],
