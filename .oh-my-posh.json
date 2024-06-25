@@ -40,7 +40,7 @@
             "fetch_upstream_icon": false
           },
           "style": "diamond",
-          "template": " {{ .HEAD }} {{if or (gt .Ahead 0) (gt .Behind 0)}} {{- .BranchStatus -}} {{end}} <p:yellow>{{.Staging.String}}</><p:orange>{{.Working.String}}</>",
+          "template": " {{ .HEAD }}{{if or (gt .Ahead 0) (gt .Behind 0)}} {{ .BranchStatus }}{{end}}{{ if .Staging.Changed }}<p:yellow> {{.Staging.String}}</>{{ end }}{{ if and .Staging.Changed .Working.Changed}} |{{end}}{{ if .Working.Changed }}<p:orange> {{.Working.String}}</>{{end}}",
           "type": "git"
         }
       ],
