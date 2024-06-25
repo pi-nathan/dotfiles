@@ -133,15 +133,24 @@ antigen bundle sudo
 antigen bundle dirhistory
 antigen bundle lukechilds/zsh-nvm
 
-# Theme
-antigen theme romkatv/powerlevel10k
 
-# Apply
+if ! command -v oh-my-posh &> /dev/null; then
+  antigen theme romkatv/powerlevel10k
+
+fi
+
 antigen apply
 
-# powerlevel10k
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if ! command -v oh-my-posh &> /dev/null; then
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+else
+  eval "$(oh-my-posh init zsh --config ~/.oh-my-posh.json)"
+fi
+
+
+export PATH="$HOME/.local/bin:$PATH"
+
+
 
 # fzf
 if command -v fzf &> /dev/null; then

@@ -35,7 +35,7 @@ config.mouse_bindings = {
 }
 
 -- Font
-config.font = wezterm.font_with_fallback { 'MesloLGS Nerd Font Mono' }
+config.font = wezterm.font_with_fallback { { family = 'MesloLGS Nerd Font Propo', weight = 'Bold' } }
 config.font_size = 16.0
 config.font_rules = {
     {
@@ -74,8 +74,8 @@ config.window_frame = {
 }
 
 -- Window
-config.window_background_opacity = 0.95
-config.macos_window_background_blur = 10
+config.window_background_opacity = 0.96
+config.macos_window_background_blur = 30
 
 -- Misc
 config.default_cursor_style = 'SteadyBar'
