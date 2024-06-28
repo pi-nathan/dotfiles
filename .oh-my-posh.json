@@ -51,6 +51,13 @@
       "leading_diamond": "\ue0b6",
       "segments": [
         {
+          "type": "upgrade",
+          "style": "diamond",
+          "trailing_diamond": "<p:selection>\ue0bb</>",
+          "foreground": "p:green",
+          "background": "p:background"
+        },
+        {
           "type": "angular",
           "style": "diamond",
           "trailing_diamond": "<p:selection>\ue0bb</>",
