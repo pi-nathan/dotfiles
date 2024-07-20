@@ -108,13 +108,6 @@ if [[ -f "/opt/homebrew/bin/brew" ]]; then
   [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 fi
 
-# fzf
-if command -v fzf &> /dev/null; then
-  gch() {
-    git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
-  }
-fi
-
 if [[ ! -f "$HOME/.antigen.zsh" ]]; then
   curl -L git.io/antigen > ~/.antigen.zsh
 fi
@@ -158,7 +151,10 @@ if command -v fzf &> /dev/null; then
   export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
   gch() {
-    git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
+    GCH_BRANCH=$(git branch --all | fzf | tr -d '[:space:]')
+    # Add to history
+    print -S "git checkout $GCH_BRANCH"
+    git checkout "$GCH_BRANCH"
   }
 fi
 
